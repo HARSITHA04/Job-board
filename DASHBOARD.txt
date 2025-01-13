@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Board</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            min-height: 100vh;
+            background-color: #f8f9fa;
+        }
+
+        /* Sidebar for navigation */
+        .sidebar {
+            width: 250px;
+            background-color: #007bff;
+            color: white;
+            padding-top: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar ul li {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #0056b3;
+        }
+
+        /* Main content area */
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+            width: calc(100% - 250px);
+        }
+
+        .main-content header {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .featured-jobs,
+        .job-listings,
+        .job-item,
+        .job-details,
+        .post-job,
+        .application-form,
+        .profile-management {
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .job-item,
+        .job-listing {
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+
+        .job-item a,
+        .job-listing a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .job-item a:hover,
+        .job-listing a:hover {
+            text-decoration: underline;
+        }
+
+        .search-bar input,
+        .login-form input,
+        .application-form input,
+        .application-form textarea,
+        .post-job input,
+        .post-job textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .login-form button,
+        .application-form button,
+        .post-job button {
+            background-color: #17a2b8;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-form button:hover,
+        .application-form button:hover,
+        .post-job button:hover {
+            background-color: #138496;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 200px;
+                position: relative;
+            }
+
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#job-listings">Job Listings</a></li>
+            <li><a href="#job-details">Job Details</a></li>
+            <li><a href="#post-job">Post Job</a></li>
+            <li><a href="#profile-management">Profile Management</a></li>
+            <li><a href="#application-form">Job Application</a></li>
+            <li><a href="#login">Login</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+        <header>
+            <h1>Welcome to the Job Board</h1>
+        </header>
+
+        <!-- Home Section -->
+        <section id="home" class="featured-jobs">
+            <h2>Featured Jobs</h2>
+            <div class="job-listing">
+                <a href="#job-details">
+                    <h3>Software Developer</h3>
+                    <p>Company XYZ</p>
+                    <span>Location: New York</span>
+                </a>
+            </div>
+            <div class="job-listing">
+                <a href="#job-details">
+                    <h3>Graphic Designer</h3>
+                    <p>Company ABC</p>
+                    <span>Location: Los Angeles</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Job Listings Section -->
+        <section id="job-listings" class="job-listings">
+            <h2>Available Jobs</h2>
+            <div class="job-item">
+                <a href="#job-details">
+                    <h3>Software Developer</h3>
+                    <p>Company XYZ</p>
+                    <span>Location: New York</span>
+                </a>
+            </div>
+            <div class="job-item">
+                <a href="#job-details">
+                    <h3>Graphic Designer</h3>
+                    <p>Company ABC</p>
+                    <span>Location: Los Angeles</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Job Details Section -->
+        <section id="job-details" class="job-details">
+            <h2>Software Developer</h2>
+            <p><strong>Company:</strong> XYZ</p>
+            <p><strong>Location:</strong> New York</p>
+            <p><strong>Description:</strong> We are looking for a skilled software developer to join our team.</p>
+            <p><strong>Required Skills:</strong> JavaScript, React, Node.js</p>
+            <button><a href="#application-form">Apply Now</a></button>
+        </section>
+
+        <!-- Post Job Section -->
+        <section id="post-job" class="post-job">
+            <h2>Post a New Job</h2>
+            <form action="submit-job-action.html" method="POST">
+                <label for="job-title">Job Title:</label>
+                <input type="text" id="job-title" name="job-title" required>
+                <label for="job-description">Description:</label>
+                <textarea id="job-description" name="job-description" required></textarea>
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" required>
+                <button type="submit">Post Job</button>
+            </form>
+        </section>
+
+        <!-- Profile Management Section -->
+        <section id="profile-management" class="profile-management">
+            <h2>Manage Profile</h2>
+            <form action="submit-profile-action.html" method="POST">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <button type="submit">Update Profile</button>
+            </form>
+        </section>
+
+        <!-- Job Application Section -->
+        <section id="application-form" class="application-form">
+            <h2>Job Application</h2>
+            <form action="submit-application-action.html" method="POST" enctype="multipart/form-data">
+                <label for="resume">Upload Resume:</label>
+                <input type="file" id="resume" name="resume" required>
+                <label for="cover-letter">Cover Letter:</label>
+                <textarea id="cover-letter" name="cover-letter" required></textarea>
+                <button type="submit">Apply Now</button>
+            </form>
+        </section>
+
+        <!-- Login Section -->
+        <section id="login" class="login-form">
+            <h2>Login</h2>
+            <form action="login-action.html" method="POST">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Login</button>
+            </form>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Job Board</p>
+        </footer>
+    </div>
+</body>
+</html>
+
